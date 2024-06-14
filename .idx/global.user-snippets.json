@@ -1,0 +1,202 @@
+{
+	"ExportArrowFunction":{
+		"prefix": "efn",
+		"body": [
+			"export const ${1:newFunction} = () => {",
+			"   ",
+			"}"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ConsoleLog":{
+		"prefix": "clg",
+		"body": "console.log( $1 )",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ConsoleObject":{
+		"prefix": "clo",
+		"body": "console.log({ $1 })",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ConsoleTable":{
+		"prefix": "ct",
+		"body": "console.table( $1 )",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleError": {
+		"prefix": "ce",
+		"body": ["console.error( $1 )"],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+
+
+	"TODO": {
+		"prefix": "todo",
+		"body": [
+			"// TODO: $1",
+			"//  ${2:action}"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+
+
+	"ReactArrowFunctionComponent": {
+		"prefix": "rafc",
+		"body": [
+			"export const ${1:${TM_FILENAME_BASE}} = () => {",
+			"   return (",
+			"      <>",
+			"         <h1>${1:${TM_FILENAME_BASE}}</h1>",
+			"      </>",
+			"   )",
+			"}"
+		],
+		"description": "Creates a React-Arrow-Function Component with ES7 module system",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReactArrowFunctionComponentExport": {
+		"prefix": "rafce",
+		"body": [
+			"const ${1:${TM_FILENAME_BASE}} = () => {",
+			"   return (",
+			"      <>",
+			"         <h1>${1:${TM_FILENAME_BASE}}</h1>",
+			"      </>",
+			"   )",
+			"}",
+			"",
+			"export default ${1:${TM_FILENAME_BASE}}"
+		],
+		"description": "Creates a React-Arrow-Function Component with ES7 module system",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+
+
+	"ReduxStore": {
+		"prefix": "rx",
+		"body": [
+			"import { configureStore } from '@reduxjs/toolkit'",
+			"",
+			"export const ${1:${TM_FILENAME_BASE}} = configureStore({",
+			"   reducer: {",
+			"      ${2:reducer}: ${3:...}",
+			"   }",
+			"})"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReduxSlice": {
+		"prefix": "rxs",
+		"body": [
+			"import { createSlice } from '@reduxjs/toolkit'",
+			"",
+			"export const ${1:${TM_FILENAME_BASE}} = createSlice({",
+			"   name: '${2:name}',",
+			"   initialState: {$3},",
+			"   reducers: {",
+			"      ${4:action}: (state) => {",
+			"         state",
+			"      },",
+			"   },",
+			"})",
+			"",
+			"export const { ${4:action} } = ${1:${TM_FILENAME_BASE}}.actions"
+		],
+		"description": "Creates a Redux-Arrow-Function Slice with ES7 module system",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReduxSliceActionReducer": {
+		"prefix": "rxa",
+		"body": [
+			"${1:action}: (state, { payload }) => {",
+			"   ",
+			"},"
+		],
+		"description": "Creates a Redux-Arrow-Function Reducer Action for Redux Slices",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReduxThunk": {
+		"prefix": "rxt",
+		"body": [
+			"export const ${1:newThunk} = () => {",
+			"   return async (dispatch, getState) => {",
+			"      $2",
+			"   }",
+			"}"
+		],
+		"description": "Creates a Redux-Arrow-Function Thunk",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+
+	
+	"ExportComponent": {
+		"prefix": "exp",
+		"body": "export * from './$1'",
+		"description": "Creates an Export-module-component line",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ImportComponent": {
+		"prefix": "imp",
+		"body": "import { ${1:Component} } from '@/${2:module}'",
+		"description": "Creates an Export-module-component line",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReactHook-useState": {
+		"prefix": "useStateSnippet",
+		"body": "const [ ${1:state}, set${1/(.*)/${1:/capitalize}/} ] = useState( ${2:init} )",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReactHook-useEffect": {
+		"prefix": "useEffectSnippet",
+		"body": [
+			"useEffect(",
+			"   () => {",
+			"      ${2:first}",
+			"   }, ",
+			"[$1])"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReactHook-useMemo": {
+		"prefix": "useMemoSnippet",
+		"body": [
+			"const ${1:value} = useMemo(",
+			"   () => {",
+			"      $3",
+			"   }, ",
+			"[$2])"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReduxHook-useSelector": {
+		"prefix": "useSelectorSnippet",
+		"body": [
+			"const { $2 } = useSelector( state => state.${1:slice} )"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"ReduxHook-useDispatch": {
+		"prefix": "useDispatchSnippet",
+		"body": [
+			"const dispatch = useDispatch()"
+		],
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"describeBlock": {
+		"prefix": "desc",
+		"body": [
+			"describe('Testing on ${1:${TM_FILENAME_BASE}}', () => {",
+			"",
+			"   ${2:second}",
+			"",
+			"})"],
+		"description": "Testing `describe` block",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"testBlock": {
+		"prefix": "test",
+		"body": ["test('should ${1:first}', () => {${2:second}})"],
+		"description": "Testing `test` block",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	}
+}
