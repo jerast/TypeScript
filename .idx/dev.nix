@@ -37,10 +37,10 @@
     previews = {
       enable = false;
       previews = {
-        web = {
-          # command = ["pnpm" "run" "dev" "--" "--port" "$PORT" "--host" "0.0.0.0"];
-          # manager = "web"
-        };
+        # web = {
+          # command = ["pnpm run dev --port 0.0.0.0 --host"];
+          # manager = "web";
+        # };
       };
     };
   };
