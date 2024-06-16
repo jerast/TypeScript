@@ -1,14 +1,36 @@
-import { useState } from 'react'
 import { Guitar } from './components/Guitar'
 import { Header } from './components/Header'
-import { db } from './data/db'
+import { useCart } from './hooks/useCart'
 
 export const App = () => {
-	const [data, setData] = useState(db)
-	
+
+	const {
+		data, 
+		cart, 
+		cartIsEmpty, 
+		cartTotal,
+		MIN_ITEMS,
+		MAX_ITEMS,
+		addToCart, 
+		removeFromCart, 
+		clearCart, 
+		increaseQuantity, 
+		decreaseQuantity
+	} = useCart()
+
 	return (
 		<>
-			<Header />
+			<Header 
+				cart={cart}
+				cartIsEmpty={cartIsEmpty}
+				cartTotal={cartTotal}
+				removeFromCart={removeFromCart}
+				clearCart={clearCart}
+				increaseQuantity={increaseQuantity}
+				decreaseQuantity={decreaseQuantity}
+				MAX_ITEMS={MAX_ITEMS}
+				MIN_ITEMS={MIN_ITEMS}
+			/>
 
 			<main className="container-xl mt-5">
 				<h2 className="text-center">Nuestra Colección</h2>
@@ -16,7 +38,11 @@ export const App = () => {
 				<div className="row mt-5">
 					{
 						data.map(guitar => 
-							<Guitar key={guitar.id} guitar={guitar} />
+							<Guitar 
+								key={guitar.id} 
+								guitar={guitar} 
+								addToCart={addToCart}
+							/>
 						)
 					}
 				</div>
