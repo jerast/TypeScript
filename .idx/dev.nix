@@ -10,6 +10,7 @@
     pkgs.git
     pkgs.corepack
     pkgs.nodejs_20
+    pkgs.nodePackages.pnpm
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -31,7 +32,11 @@
       onCreate = {
         # npm-install = "pnpm install";
       };
+      
       # To run something each time the workspace is (re)started, use the `onStart` hook
+      onStart = {
+        project-pull = "git pull";
+      };
     };
     # Enable previews and customize configuration
     previews = {
